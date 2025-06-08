@@ -1,0 +1,164 @@
+/* Overall App Background and Text */
+.stApp {
+    background-color: #0d1117; /* Dark charcoal/space black */
+    color: #00ffc4; /* Neon green/cyan for primary text */
+    font-family: 'Roboto Mono', monospace; /* Monospaced font for techy feel */
+    font-size: 1.1em;
+}
+
+/* Header/Title Styling */
+h1, h2, h3, h4, h5, h6 {
+    color: #00ffc4; /* Neon green/cyan */
+    text-shadow: 0 0 5px #00ffc4, 0 0 10px #00ffc4; /* Subtle glow */
+    font-family: 'Orbitron', sans-serif; /* Futuristic bold font */
+    border-bottom: 2px solid #005642; /* Underline effect */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+    background-color: #1a222e; /* Slightly lighter dark background for sidebar */
+    color: #a0faff; /* Lighter cyan for sidebar text */
+    border-right: 1px solid #005642;
+    box-shadow: 2px 0 10px rgba(0, 255, 196, 0.2); /* Sidebar subtle glow */
+}
+
+/* Sidebar header */
+[data-testid="stSidebar"] h1 {
+    color: #00ffc4;
+    text-shadow: 0 0 3px #00ffc4;
+}
+
+/* Streamlit Widgets (buttons, multiselect, slider, etc.) */
+.stButton>button {
+    background-color: #005642; /* Dark green button */
+    color: #a0faff; /* Light cyan text */
+    border: 1px solid #00ffc4;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.stButton>button:hover {
+    background-color: #007bff; /* Brighter blue on hover */
+    border-color: #a0faff;
+    color: white;
+    box-shadow: 0 0 8px rgba(0, 255, 196, 0.7); /* Stronger glow on hover */
+}
+
+/* Dropdowns/Multiselects */
+.stMultiSelect, .stSelectbox {
+    background-color: #222b36; /* Darker input fields */
+    border: 1px solid #00ffc4;
+    border-radius: 5px;
+    color: #a0faff;
+}
+
+.stMultiSelect div[data-baseweb="select"], .stSelectbox div[data-baseweb="select"] {
+    background-color: #222b36 !important;
+    border: 1px solid #00ffc4 !important;
+    color: #a0faff !important;
+}
+
+.stMultiSelect div[data-baseweb="tag"], .stMultiSelect div[data-baseweb="select"] div[data-baseweb="tag"] {
+    background-color: #005642 !important; /* Selected item tag background */
+    color: #a0faff !important; /* Selected item tag text */
+    border: 1px solid #00ffc4 !important;
+}
+
+
+/* Sliders */
+.stSlider .st-bd { /* Track background */
+    background-color: #003328;
+}
+.stSlider .st-bg { /* Fill color */
+    background-color: #00ffc4;
+}
+.stSlider .st-cq { /* Thumb */
+    background-color: #a0faff;
+    border: 2px solid #00ffc4;
+}
+
+/* Checkbox */
+.stCheckbox {
+    color: #a0faff;
+}
+.stCheckbox > label {
+    color: #a0faff;
+}
+.stCheckbox > label > div > p {
+    color: #a0faff; /* Text color */
+}
+
+/* Dataframes (Raw Data) */
+.stDataFrame {
+    border: 1px solid #005642;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 196, 0.1);
+    background-color: #1a222e; /* Darker background for dataframes */
+}
+/* Table headers */
+.stDataFrame table thead th {
+    background-color: #005642 !important;
+    color: #a0faff !important;
+    border-bottom: 2px solid #00ffc4 !important;
+}
+/* Table cells */
+.stDataFrame table tbody tr {
+    background-color: #1a222e !important;
+    color: #00ffc4 !important;
+}
+.stDataFrame table tbody tr:nth-child(odd) {
+    background-color: #12181f !important; /* Slightly different for stripes */
+}
+
+
+/* Metrics */
+[data-testid="stMetric"] {
+    background-color: #1a222e;
+    border: 1px solid #005642;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 196, 0.1);
+}
+
+[data-testid="stMetric"] > div > div:nth-child(1) { /* Label */
+    color: #a0faff;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+[data-testid="stMetric"] > div > div:nth-child(2) { /* Value */
+    color: #00ffc4;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00ffc4;
+}
+[data-testid="stMetric"] > div > div:nth-child(3) { /* Delta */
+    color: #f0ff00; /* Yellow for delta values */
+    font-size: 0.8em;
+}
+
+/* General text */
+p, li {
+    color: #a0faff;
+}
+
+/* Separator lines */
+hr {
+    border-top: 1px dashed #005642;
+    margin: 2em 0;
+}
+
+/* Information boxes */
+div[data-testid="stAlert"] {
+    background-color: #1a222e !important;
+    border: 1px solid #00ffc4 !important;
+    color: #a0faff !important;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Custom fonts via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
