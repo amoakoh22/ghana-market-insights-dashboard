@@ -117,7 +117,7 @@ filtered_df = df[
     df['Product'].isin(selected_products) &
     df['Region'].isin(selected_regions) &
     (df['Date'] >= date_range[0]) &
-    (df['Date'] <= date_date_range[1])
+    (df['Date'] <= date_range[1])
 ]
 
 # Checkbox to allow users to view the raw filtered data
