@@ -83,18 +83,22 @@ st.sidebar.header(":: DATA STREAM CONTROLS ::")
 
 # Multiselect widget for selecting one or more products
 all_products = df['Product'].unique()
+# MODIFICATION: Changed default selection to include multiple products for better initial data display
 selected_products = st.sidebar.multiselect(
     "Select Product(s) for Analysis",
     options=all_products,
-    default=all_products[0] if len(all_products) > 0 else [] # Sets default to the first product if available
+    # Default to first two products, or all if fewer than two exist
+    default=list(all_products[:min(2, len(all_products))])
 )
 
 # Multiselect widget for selecting one or more regions
 all_regions = df['Region'].unique()
+# MODIFICATION: Changed default selection to include multiple regions for better initial data display
 selected_regions = st.sidebar.multiselect(
     "Select Regional Data Feeds",
     options=all_regions,
-    default=all_regions[0] if len(all_regions) > 0 else [] # Sets default to the first region if available
+    # Default to first two regions, or all if fewer than two exist
+    default=list(all_regions[:min(2, len(all_regions))])
 )
 
 # Date range slider for temporal filtering
@@ -113,7 +117,7 @@ filtered_df = df[
     df['Product'].isin(selected_products) &
     df['Region'].isin(selected_regions) &
     (df['Date'] >= date_range[0]) &
-    (df['Date'] <= date_range[1])
+    (df['Date'] <= date_date_range[1])
 ]
 
 # Checkbox to allow users to view the raw filtered data
@@ -263,6 +267,7 @@ else:
                 'Price_Change_Pct': "{:.2f}%" # Format as percentage
             }).set_caption("Note: Oscillation detected for latest cycle relative to previous cycle."))
         else:
+            # Display a specific message if no data exists for price change calculation
             st.info("No sufficient temporal data for oscillation analysis (requires minimum two cycles).")
 
         # Table: Top 3 most expensive regions per product
@@ -359,4 +364,30 @@ else:
 
     # Informative message for chart downloads
     st.info("NOTE: For graphic data extraction, right-click visual displays and select 'Save Image As...'.")
+
+    st.markdown("---") # Separator before the developer info section
+
+    # --- Developer Information Section ---
+    st.header(":: DEVELOPER INTERFACE ::")
+    st.markdown(
+        """
+        <div style="background-color: #1a222e; padding: 20px; border-radius: 8px; border: 1px solid #005642; box-shadow: 0 0 10px rgba(0, 255, 196, 0.1);">
+            <p style="color: #a0faff; font-size: 1.1em;">
+                <span style="color: #00ffc4; font-weight: bold;">Samuel Amoakoh</span>
+                <br>
+                Empowering data-driven decisions with intuitive and robust analytical tools.
+                <br><br>
+                <span style="color: #00ffc4;">// CONTACT //</span>
+                <br>
+                Email: <a href="mailto:p.samuelamoakoh@gmail.com" style="color: #a0faff; text-decoration: none;">p.samuelamoakoh@gmail.com</a>
+                <br>
+                LinkedIn: <a href="https://www.linkedin.com/in/samuel-amoakoh" target="_blank" style="color: #a0faff; text-decoration: none;">linkedin.com/in/samuel-amoakoh</a>
+                <br>
+                GitHub: <a href="https://github.com/amoakoh22" target="_blank" style="color: #a0faff; text-decoration: none;">github.com/amoakoh22</a>
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    st.markdown("---") # Final separator
 
